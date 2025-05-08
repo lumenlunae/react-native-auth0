@@ -37,7 +37,7 @@ class Auth0 {
       localAuthenticationOptions
     );
     this.options = options;
-    this.globalHeaders = headers
+    this.globalHeaders = headers;
   }
 
   /**
@@ -47,7 +47,12 @@ class Auth0 {
    */
   users(token: string) {
     const { domain, ...extras } = this.options;
-    return new Users({ baseUrl: domain, ...extras, token, headers: this.globalHeaders });
+    return new Users({
+      baseUrl: domain,
+      ...extras,
+      token,
+      headers: this.globalHeaders,
+    });
   }
 }
 
