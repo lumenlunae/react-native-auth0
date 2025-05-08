@@ -40,11 +40,9 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "release": "release-it",
-    "bootstrap": "cd example && npm ci",
-    "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build && expo-module clean",
+    "bootstrap": "",
+    "clean": "del-cli android/build && expo-module clean",
     "prepare": "husky && bob build && rm -rf lib/*/package.json",
-    "example:android": "cd example && npm run android",
-    "example:ios": "cd example && npm run ios",
     "precommit": "pretty-quick --staged"
   },
   "keywords": [
@@ -135,16 +133,12 @@
     "jwt-decode": "^4.0.0",
     "url": "^0.11.4"
   },
-  "workspaces": [
-    "example"
-  ],
   "jest": {
     "coverageDirectory": "./coverage/",
     "collectCoverage": false,
     "testEnvironment": "./jest.environment",
     "modulePathIgnorePatterns": [
       "fixtures",
-      "<rootDir>/example/node_modules",
       "<rootDir>/lib/",
       "<rootDir>/node_modules/(?!fetch-mock)/"
     ]
